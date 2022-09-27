@@ -1,11 +1,11 @@
 <?php 
+// ddang o nhanh dev_thien
 
-echo "hello";
 $conn = mysqli_connect('localhost', 'root', '', 'nhac_buh_php');
 
 if($conn) {
-  echo 'success';
-
+  // echo 'success';
+  echo "thanh cong";
 }else {
   die(mysql_error($conn));
 }

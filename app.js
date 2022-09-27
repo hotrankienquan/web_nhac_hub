@@ -78,8 +78,11 @@ const playlistAPI = "https://615950a6601e6f0017e5a15b.mockapi.io/api/playlist";
 const videoAPI = "https://615950a6601e6f0017e5a15b.mockapi.io/api/videos";
 const songUSUKAPI = "https://6260ea02f429c20deb979e8a.mockapi.io/USUK";
 const songEDMAPI = "https://6260ea02f429c20deb979e8a.mockapi.io/EDM";
+// const rankTableAPI =
+//   "https://mp3.zing.vn/xhr/chart-realtime?songId=0&videoId=0&albumId=0&chart=song&time=-1";
 const rankTableAPI =
-  "https://mp3.zing.vn/xhr/chart-realtime?songId=0&videoId=0&albumId=0&chart=song&time=-1";
+  "http://localhost/zingmp3-with-php/api/song.php";
+
 var songData = [];
 var singerData = [];
 var playlistData = [];
@@ -298,7 +301,7 @@ const app = {
                     <h3 class="content__item--title">${theme.type}</h3>
                     <div class="content__item--container">
                     ${theme.list.map((item, index) => {
-                      return `
+        return `
                             <div class="content__item--theme" data-index="${index}">
                                 <div class="item__theme--display">
                                     <img
@@ -312,7 +315,7 @@ const app = {
                                 </div>
                                 <h4>${item.name}</h4>
                             </div>`;
-                    })}
+      })}
                     </div>
                 </div>`;
     });
@@ -326,20 +329,19 @@ const app = {
   renderMenuSong: () => {
     const htmls = rankTableData.data.song.map((item, index) => {
       return `
-            <div class="menu-side__song-item ${
-              app.currentIndex === index ? "active" : ""
-            }" data-index="${index}">
-                <div class="menu-side__song-item--number">${item.order}</div>
+            <div class="menu-side__song-item ${app.currentIndex === index ? "active" : ""
+        }" data-index="${index}">
+                <div class="menu-side__song-item--number">${item.id}</div>
                 <div class="menu-side__song-item--image">
                     <div class="music-play__wave active">
                         <div class="music-play__wave-item"></div>
                         <div class="music-play__wave-item"></div>
                         <div class="music-play__wave-item"></div>
                     </div>
-                    <img src=${item.thumbnail} />
+                    <img src=${item.image1} />
                 </div>
                 <div class="menu-side__song-item--info">
-                    <div class="song-item--title">${item.name}</div>
+                    <div class="song-item--title">${item.name_song}</div>
                     <div class="song-item--singer">${item.artists_names}</div>
                 </div>
                 <div class="menu-side__song-item--play">
@@ -352,12 +354,10 @@ const app = {
   renderMenuSongUSUK: () => {
     const htmls = songDataUSUK.map((song, index) => {
       return `
-            <div class="menu-side__song-item ${
-              app.currentIndex === index ? "active" : ""
-            }" data-index="${index}">
-                <div class="menu-side__song-item--number">${
-                  song.id <= 9 ? "0" + song.id : song.id
-                }</div>
+            <div class="menu-side__song-item ${app.currentIndex === index ? "active" : ""
+        }" data-index="${index}">
+                <div class="menu-side__song-item--number">${song.id <= 9 ? "0" + song.id : song.id
+        }</div>
                 <div class="menu-side__song-item--image">
                     <div class="music-play__wave active">
                         <div class="music-play__wave-item"></div>
@@ -380,12 +380,10 @@ const app = {
   renderMenuSongEDM: () => {
     const htmls = songDataEDM.map((song, index) => {
       return `
-            <div class="menu-side__song-item ${
-              app.currentIndex === index ? "active" : ""
-            }" data-index="${index}">
-                <div class="menu-side__song-item--number">${
-                  song.id <= 9 ? "0" + song.id : song.id
-                }</div>
+            <div class="menu-side__song-item ${app.currentIndex === index ? "active" : ""
+        }" data-index="${index}">
+                <div class="menu-side__song-item--number">${song.id <= 9 ? "0" + song.id : song.id
+        }</div>
                 <div class="menu-side__song-item--image">
                     <div class="music-play__wave active">
                         <div class="music-play__wave-item"></div>
@@ -712,11 +710,13 @@ const app = {
       cdThumb.style.backgroundImage = `url('${app.currentSongEDM.thumbnail}')`;
       audio.src = app.currentSongEDM.path;
     } else {
+      // nhớ api trả về đặt đúng tên : name, artists_names, thumbnail,
       app.currentPlaylist = 0;
-      songTitle.innerText = app.currentPlaylist.name;
+      songTitle.innerText = app.currentPlaylist.name_song;
       songSinger.innerText = app.currentPlaylist.artists_names;
-      cdThumb.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`;
-      audio.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`;
+      cdThumb.style.backgroundImage = `url('${app.currentPlaylist.image1}')`;
+      // audio.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`;
+      audio.src = app.currentPlaylist.url_song;
     }
   },
   fancyTimeFormat: (duration) => {
@@ -782,7 +782,7 @@ const app = {
       app.activeItemWhenChangingPlaylist($$(".menu-side__song-item"));
     }
   },
-  animationCD: () => {},
+  animationCD: () => { },
   removeSongItemActive: (elementNodeList) => {
     Array.from(elementNodeList).forEach((item) => {
       if (item.classList.contains("active")) {

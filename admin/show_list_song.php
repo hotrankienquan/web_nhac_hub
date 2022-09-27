@@ -33,7 +33,6 @@
                 $name_song = $row_data['name_song'];
                 $image = $row_data['image1'];
                 $performer = $row_data['performer'];
-                var_dump($image);
                 // $last_img = base_url() . "/upload" . "/$image";
                 // print_r($last_img);
                 echo "<div class='card'>
