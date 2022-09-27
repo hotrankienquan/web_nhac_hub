@@ -1,6 +1,6 @@
 <?php 
 
-
+echo "hello";
 $conn = mysqli_connect('localhost', 'root', '', 'nhac_buh_php');
 
 if($conn) {
