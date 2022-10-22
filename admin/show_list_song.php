@@ -1,5 +1,15 @@
 <?php 
   include('../includes/connect.php');
+  if(isset($_GET['delete_id'])) {
+
+    $sql = "DELETE FROM song
+    where id = ?";
+    $stmt = mysqli_prepare($conn,$sql);
+    $id_delete = $_GET['delete_id'];
+    mysqli_stmt_bind_param($stmt,'s',$id_delete);
+    mysqli_stmt_execute($stmt);
+  }
+  // echo "<a href='index.php'>trang chủ</a>";
  
         
         
@@ -23,28 +33,63 @@
 </head>
 <body>
   <div class="container">
-    <h1>Xem danh sách bài hát bài hát</h1>
+    <h1>List song</h1>
     <?php
      $select_query = "select * from `song`";
           $result_query = mysqli_query($conn, $select_query);
           // var_dump($result_query);
+          ?>
+
+          <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name song</th>
+                    <th scope="col">Artists</th>
+                    <th scope="col">Performer</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
         while($row_data = mysqli_fetch_assoc($result_query)) {
           // var_dump($row_data);
+                $id = $row_data['id'];
                 $name_song = $row_data['name_song'];
-                $image = $row_data['image1'];
+                $artists_names = $row_data['artists_names'];
                 $performer = $row_data['performer'];
+                $image = $row_data['image1'];
                 // $last_img = base_url() . "/upload" . "/$image";
                 // print_r($last_img);
-                echo "<div class='card'>
-                  <img style='width: 50%' class='card-img-top' src='./upload/$image' alt='' >
-                  <div class='card-body'>
-                    <h4 class='card-title'>$name_song</h4>
-                    <p class='card-text'>$performer</p>
-                  </div>
-                </div>";
+                ?>
+               
+                  
+                  <tr>
+                    <th scope="row"><?= $id ?></th>
+                    <td><?= $name_song ?></td>
+                    <td><?= $artists_names ?></td>
+                    <td><?= $performer ?></td>
+                    <td>
+                       <img class="card-img-top" src="<?php echo "./upload/$image";?>" alt=""
+                       style="width:100px;height:100px;object-fit:cover"
+                       >
+                    </td>
+                    <td>
+                      <a href="./edit.php?id=<?= $id;?>" class="btn btn-sucess">Edit</a>
+                      <a href="show_list_song.php?delete_id=<?= $id;?>" class="btn btn-danger">Delete</a>
+                    </td>
+                  </tr>
+                 
+               <?php
                 
               }
               ?>
+               
+                </tbody>
+              </table>
+              <a href="show_list_song.php">come back to list song</a><br />
+              <a href="index.php">come back to admin page</a>
     <!-- <div class="card text-white">
       <img class="card-img-top" src="holder.js/100px180/" alt="">
       <div class="card-body">

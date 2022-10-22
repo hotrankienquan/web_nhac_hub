@@ -338,7 +338,7 @@ const app = {
                         <div class="music-play__wave-item"></div>
                         <div class="music-play__wave-item"></div>
                     </div>
-                    <img src=${item.image1} />
+                    <img src="./admin/upload/${item.image1}" />
                 </div>
                 <div class="menu-side__song-item--info">
                     <div class="song-item--title">${item.name_song}</div>
@@ -714,9 +714,11 @@ const app = {
       app.currentPlaylist = 0;
       songTitle.innerText = app.currentPlaylist.name_song;
       songSinger.innerText = app.currentPlaylist.artists_names;
-      cdThumb.style.backgroundImage = `url('${app.currentPlaylist.image1}')`;
+      // cdThumb.style.backgroundImage = `url('${app.currentPlaylist.image1}')`;
+      cdThumb.style.backgroundImage = `url('http://localhost/zingmp3-with-php/admin/upload/`+ app.currentPlaylist.image1 + `')`;
       // audio.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`;
-      audio.src = app.currentPlaylist.url_song;
+      // audio.src = app.currentPlaylist.url_song;
+      audio.src = 'http://localhost/zingmp3-with-php/admin/upload/song_upload/' + app.currentPlaylist.url_song;
     }
   },
   fancyTimeFormat: (duration) => {

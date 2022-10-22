@@ -5,14 +5,19 @@
     $name_song = $_POST['name_song'];
     $artists_names = $_POST['artists_names'];
     $performer = $_POST['performer'];
-    $url_song = $_POST['url_song'];
+
+    $url_song = $_FILES['url_song']['name'];
+    $url_song_tmp = $_FILES['url_song']['tmp_name'];
+
     $anh1 = $_FILES['anh1']['name'];
     $anh1_tmp = $_FILES['anh1']['tmp_name'];
     if(!($name_song == "" && $artists_names == "" && $url_song == "" && $performer == "" && $anh1 == "")) {
       move_uploaded_file($anh1_tmp,"./upload/$anh1");
+      move_uploaded_file($url_song_tmp,"./upload/song_upload/$url_song");
       // insert query
       $insert_song = "insert into `song` (name_song, artists_names, performer, url_song,image1,date) values ('$name_song','$artists_names','$performer','$url_song','$anh1',NOW())";
       $result_query = mysqli_query($conn,$insert_song );
+      var_dump($result_query);
       if($result_query) {
         echo "<script>alert('them bai hat thanh cong')</script>";
       }
@@ -53,8 +58,8 @@
 
        
 
-       <label for="">Link nhạc</label>
-       <textarea type="text" name="url_song" id="" class="form-control" placeholder="" aria-describedby="helpId" style="width:50%;"></textarea>
+       <label for="">File nhạc</label>
+       <input type="file" name="url_song" id="" class="form-control" placeholder="" aria-describedby="helpId" style="width:50%;" />
 
 
        <!-- <div class="form-group">
@@ -114,6 +119,8 @@
      <!-- <input type="submit" value="gửi"> -->
      <input name="insert_song_input" id="" class="btn btn-primary" type="submit" value="gửi lên">
     </form>
+    <br />
+    <a href="index.php">come back to admin page</a>
   </div>
   <!-- js bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
