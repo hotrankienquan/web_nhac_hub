@@ -403,193 +403,191 @@ const app = {
     });
     menuSongPlaylistEDM.innerHTML = htmls.join("");
   },
-  // renderPersonalSong: () => {
-  //   const personalSongList = $(".personal__song--list");
-  //   const htmls = songData.map((song, index) => {
-  //     return `
-  //               <div class="personal__song--list-item " data-index="${index}">
-  //                 <div class="song__list-item--left">
-  //                   <i class="bi bi-music-note-beamed"></i>
-  //                   <div class="song__list-item--left-thumbnail">
-  //                     <div class="music-play__wave active">
-  //                       <div class="music-play__wave-item"></div>
-  //                       <div class="music-play__wave-item"></div>
-  //                       <div class="music-play__wave-item"></div>
-  //                     </div>
-  //                     <img src=${song.thumbnail} alt="#" />
-  //                   </div>
-  //                   <div class="list-item__left--card-info">
-  //                     <span class="card-info__title">${song.name}</span>
-  //                     <span class="card-info__subtitle">${song.singer}</span>
-  //                   </div>
-  //                 </div>
-  //                 <div class="song__list-item--content">
-  //                   <span>${song.album}</span>
-  //                 </div>
-  //                 <div class="song__list-item--right">
-  //                   <span>04:50</span>
-  //                 </div>
-  //               </div>
-  //           `;
-  //   });
-  //   personalSongList.innerHTML = htmls.join("");
-  // },
-  // renderCarouselPlaylist: () => {
-  //   const htmls = songData.map((song, index) => {
-  //     return `
-  //           <a href="." class="playlist__carousel-item" id=${index}>
-  //               <div class="playlist__carousel-item--img">
-  //                   <img src=${song.thumbnail} alt="#" />
-  //                   <i class="bi bi-play-circle"></i>
-  //               </div>
-  //               <div class="playlist__carousel-item--title">
-  //                   ${song.album}
-  //               </div>
-  //               <div class="playlist__carousel-item--subtitle">
-  //                   ${song.singer}
-  //               </div>
-  //           </a>`;
-  //   });
-  //   carouselPlaylist.innerHTML = htmls.join("");
-  // },
-  // renderCarouselSinger: () => {
-  //   const htmls = singerData.map((singer, index) => {
-  //     return `
-  //           <a class="playlist__carousel-item--circle">
-  //           <div class="carousel-item__circle--img">
-  //             <img
-  //               src=${singer.image}
-  //               alt="#"
-  //             />
-  //             <i class="bi bi-play-circle"></i>
-  //           </div>
-  //           <div class="carousel-item__circle--name">${singer.name}</div>
-  //         </a>
-  //           `;
-  //   });
-  //   carouselSinger.innerHTML = htmls.join("");
-  // },
-  // renderNewRelease: () => {
-  //   const htmls = playlistData
-  //     .slice()
-  //     .reverse()
-  //     .slice(1)
-  //     .map((item, index) => {
-  //       return `
-  //           <div class="song-side__new-release--item swiper-slide">
-  //               <div class="song-side__new-release--thumbnail">
-  //                   <img src=${item.thumbnail}>
-  //                   <i class="bi bi-play-circle"></i>
-  //               </div>
-  //               <div class="song-side__new-release--content">
-  //                   <div class="new-release__info">
-  //                       <div class="new-release__info--title">${item.name}</div>
-  //                       <div class="new-release__info--subtitle">${
-  //                         item.singer
-  //                       }</div>
-  //                   </div>
-  //                   <div class="new-release__time">
-  //                       <div class="new-release__time--rank">#${index + 1}</div>
-  //                       <div class="new-release__time--date">26.04.2022</div>
-  //                   </div>
-  //               </div>
-  //           </div>
-  //           `;
-  //     });
-  //   carouselNewRelease.innerHTML = htmls.join("");
-  // },
-  // renderPlaylistPersonal: () => {
-  //   const htmls = playlistData.map((playlist, index) => {
-  //     return `
-  //           <a href="." class="playlist__carousel-item" id=${index}>
-  //               <div class="playlist__carousel-item--img">
-  //                   <img src=${playlist.thumbnail} alt="#" />
-  //                   <i class="bi bi-play-circle"></i>
-  //               </div>
-  //               <div class="playlist__carousel-item--title">
-  //                   ${playlist.album}
-  //               </div>
-  //               <div class="playlist__carousel-item--subtitle">
-  //                   ${playlist.singer}
-  //               </div>
-  //           </a>`;
-  //   });
-  //   playlistPersonal.innerHTML = htmls.join("");
-  // },
-  // renderAlbumPersonal: () => {
-  //   const htmls = playlistData
-  //     .slice()
-  //     .reverse()
-  //     .map((playlist, index) => {
-  //       return `
-  //           <a href="." class="playlist__carousel-item" id=${index}>
-  //               <div class="playlist__carousel-item--img">
-  //                   <img src=${playlist.thumbnail} alt="#" />
-  //                   <i class="bi bi-play-circle"></i>
-  //               </div>
-  //               <div class="playlist__carousel-item--title">
-  //                   ${playlist.album}
-  //               </div>
-  //           </a>`;
-  //     });
-  //   albumPersonal.innerHTML = htmls.join("");
-  // },
-  // renderMVPersonal: () => {
-  //   const htmls = videoData.map((mv, index) => {
-  //     return `
-  //               <div class="playlist__mv-item">
-  //                   <div class="playlist__mv-item--video">
-  //                       <video 
-  //                       src=${mv.path} 
-  //                       width="330" 
-  //                       height="186"
-  //                       poster=${mv.poster}>
-  //                       </video>
-  //                   </div>
-  //                   <div class="playlist__mv-item--info">
-  //                       <div class="mv-item__info--thumbnail">
-  //                           <img src=${mv.avatar} alt="">
-  //                       </div>
-  //                       <div class="mv-item__info--content">
-  //                           <div class="info__content-title">${mv.name}</div>
-  //                           <div class="info__content-subtitle">${mv.singer}</div>
-  //                       </div>
-  //                   </div>
-  //               </div>
-  //           `;
-  //   });
-  //   mvPersonal.innerHTML = htmls.join("");
-  // },
-  // renderZingChart: () => {
-  //   const htmls = rankTableData.data.song.slice(0, 3).map((item, index) => {
-  //     return `
-  //           <div class="chart__legend-box--item">
-  //               <div class="legend-box__item-number">${item.position}
-  //               </div>
-  //               <div class="legend-box__item-song">
-  //                   <div class="legend-box__item-song--thumbnail">
-  //                       <img src=${item.thumbnail} width="50px">
-  //                   </div>
-  //                   <div class="legend-box__item-song--info">
-  //                       <div class="song__info-title">
-  //                           ${item.title}
-  //                       </div>
-  //                       <div class="song__info-subtitle">
-  //                           ${item.artists_names}
-  //                       </div>
-  //                   </div>
-  //                   <div class="legend-box__item-song--percent">
-  //                   ${item.total}
-  //                   </div>
-  //               </div>
-  //           </div>
-  //           `;
-  //   });
-  //   const btnElement = `<div class="chart__legend--show-more">
-  //                               <a href="#">Xem Thêm</a>
-  //                           </div>`;
-  //   chartLegendBox.innerHTML = htmls.concat(btnElement).join("");
-  // },
+  renderPersonalSong: () => {
+    const personalSongList = $(".personal__song--list");
+    const htmls = songData.map((song, index) => {
+      return `
+                <div class="personal__song--list-item " data-index="${index}">
+                  <div class="song__list-item--left">
+                    <i class="bi bi-music-note-beamed"></i>
+                    <div class="song__list-item--left-thumbnail">
+                      <div class="music-play__wave active">
+                        <div class="music-play__wave-item"></div>
+                        <div class="music-play__wave-item"></div>
+                        <div class="music-play__wave-item"></div>
+                      </div>
+                      <img src=${song.thumbnail} alt="#" />
+                    </div>
+                    <div class="list-item__left--card-info">
+                      <span class="card-info__title">${song.name}</span>
+                      <span class="card-info__subtitle">${song.singer}</span>
+                    </div>
+                  </div>
+                  <div class="song__list-item--content">
+                    <span>${song.album}</span>
+                  </div>
+                  <div class="song__list-item--right">
+                    <span>04:50</span>
+                  </div>
+                </div>
+            `;
+    });
+    personalSongList.innerHTML = htmls.join("");
+  },
+  renderCarouselPlaylist: () => {
+    const htmls = songData.map((song, index) => {
+      return `
+            <a href="." class="playlist__carousel-item" id=${index}>
+                <div class="playlist__carousel-item--img">
+                    <img src=${song.thumbnail} alt="#" />
+                    <i class="bi bi-play-circle"></i>
+                </div>
+                <div class="playlist__carousel-item--title">
+                    ${song.album}
+                </div>
+                <div class="playlist__carousel-item--subtitle">
+                    ${song.singer}
+                </div>
+            </a>`;
+    });
+    carouselPlaylist.innerHTML = htmls.join("");
+  },
+  renderCarouselSinger: () => {
+    const htmls = singerData.map((singer, index) => {
+      return `
+            <a class="playlist__carousel-item--circle">
+            <div class="carousel-item__circle--img">
+              <img
+                src=${singer.image}
+                alt="#"
+              />
+              <i class="bi bi-play-circle"></i>
+            </div>
+            <div class="carousel-item__circle--name">${singer.name}</div>
+          </a>
+            `;
+    });
+    carouselSinger.innerHTML = htmls.join("");
+  },
+  renderNewRelease: () => {
+    const htmls = playlistData
+      .slice()
+      .reverse()
+      .slice(1)
+      .map((item, index) => {
+        return `
+            <div class="song-side__new-release--item swiper-slide">
+                <div class="song-side__new-release--thumbnail">
+                    <img src=${item.thumbnail}>
+                    <i class="bi bi-play-circle"></i>
+                </div>
+                <div class="song-side__new-release--content">
+                    <div class="new-release__info">
+                        <div class="new-release__info--title">${item.name}</div>
+                        <div class="new-release__info--subtitle">${
+                          item.singer
+                        }</div>
+                    </div>
+                    <div class="new-release__time">
+                        <div class="new-release__time--rank">#${index + 1}</div>
+                        <div class="new-release__time--date">26.04.2022</div>
+                    </div>
+                </div>
+            </div>
+            `;
+      });
+    carouselNewRelease.innerHTML = htmls.join("");
+  },
+  renderPlaylistPersonal: () => {
+    const htmls = playlistData.map((playlist, index) => {
+      return `
+            <a href="." class="playlist__carousel-item" id=${index}>
+                <div class="playlist__carousel-item--img">
+                    <img src=${playlist.thumbnail} alt="#" />
+                    <i class="bi bi-play-circle"></i>
+                </div>
+                <div class="playlist__carousel-item--title">
+                    ${playlist.album}
+                </div>
+                <div class="playlist__carousel-item--subtitle">
+                    ${playlist.singer}
+                </div>
+            </a>`;
+    });
+    playlistPersonal.innerHTML = htmls.join("");
+  },
+  renderAlbumPersonal: () => {
+    const htmls = playlistData
+      .slice()
+      .reverse()
+      .map((playlist, index) => {
+        return `
+            <a href="." class="playlist__carousel-item" id=${index}>
+                <div class="playlist__carousel-item--img">
+                    <img src=${playlist.thumbnail} alt="#" />
+                    <i class="bi bi-play-circle"></i>
+                </div>
+                <div class="playlist__carousel-item--title">
+                    ${playlist.album}
+                </div>
+            </a>`;
+      });
+    albumPersonal.innerHTML = htmls.join("");
+  },
+  renderMVPersonal: () => {
+    const htmls = videoData.map((mv, index) => {
+      return `
+                <div class="playlist__mv-item">
+                    <div class="playlist__mv-item--video">
+                        <video 
+                        src=${mv.path} 
+                        width="330" 
+                        height="186"
+                        poster=${mv.poster}>
+                        </video>
+                    </div>
+                    <div class="playlist__mv-item--info">
+                        <div class="mv-item__info--thumbnail">
+                            <img src=${mv.avatar} alt="">
+                        </div>
+                        <div class="mv-item__info--content">
+                            <div class="info__content-title">${mv.name}</div>
+                            <div class="info__content-subtitle">${mv.singer}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    });
+    mvPersonal.innerHTML = htmls.join("");
+  },
+  renderZingChart: () => {
+    const htmls = rankTableData.data.song.slice(0, 3).map((item, index) => {
+      return `
+            <div class="chart__legend-box--item">
+                <div class="legend-box__item-number">${item.id}
+                </div>
+                <div class="legend-box__item-song">
+                    <div class="legend-box__item-song--thumbnail">
+                        <img src=${item.image1} width="50px">
+                    </div>
+                    <div class="legend-box__item-song--info">
+                        <div class="song__info-title">
+                            ${item.name_song}
+                        </div>
+                        <div class="song__info-subtitle">
+                            ${item.artists_names}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            `;
+    });
+    const btnElement = `<div class="chart__legend--show-more">
+                                <a href="#">Xem Thêm</a>
+                            </div>`;
+    chartLegendBox.innerHTML = htmls.concat(btnElement).join("");
+  },
   handleHoverVideo: () => {
     Array.from($$(".playlist__mv-item--video video")).forEach((item, index) => {
       item.onmouseover = () => {
@@ -1322,25 +1320,25 @@ const app = {
     app.defineProperties();
     app.renderTheme();
     app.renderMenuSong();
-    // app.renderMenuSongUSUK();
-    // app.renderMenuSongEDM();
-    // app.renderPersonalSong();
-    // app.renderCarouselPlaylist();
-    // app.renderCarouselSinger();
-    // app.renderNewRelease();
-    // app.renderPlaylistPersonal();
-    // app.renderAlbumPersonal();
-    // app.renderMVPersonal();
-    // app.renderZingChart();
+    app.renderMenuSongUSUK();
+    app.renderMenuSongEDM();
+    app.renderPersonalSong();
+    app.renderCarouselPlaylist();
+    app.renderCarouselSinger();
+    app.renderNewRelease();
+    app.renderPlaylistPersonal();
+    app.renderAlbumPersonal();
+    app.renderMVPersonal();
+    app.renderZingChart();
     app.loadCurrentSong();
-    // app.loadZingChart();
+    app.loadZingChart();
     app.handleEvent();
-    // app.selectTheme();
+    app.selectTheme();
     app.selectSongPlaylist();
-    // app.selectSongPlaylistUSUK();
-    // app.selectSongPlaylistEDM();
-    // app.selectSongPersonal();
-    // app.handleHoverVideo();
+    app.selectSongPlaylistUSUK();
+    app.selectSongPlaylistEDM();
+    app.selectSongPersonal();
+    app.handleHoverVideo();
   },
 };
 

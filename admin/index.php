@@ -26,6 +26,21 @@
     rel="stylesheet">
   <!-- css bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- handle search  -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#search-song').keydown(function(){
+        //alert($('.search_text').val());
+            var txt =$('#search-song').val();
+            $.post('search.php', {data :txt }, function(data){
+                $('.danhsach').html(data);
+                  
+            }) 
+          })
+      })
+    </script>
 </head>
 <body>
   <!-- <h1>admin here</h1> -->

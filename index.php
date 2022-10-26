@@ -135,18 +135,18 @@
               </div>
             </div>
             <div class="song-side__playlist--carousel">
-              <!-- <a href="." class="playlist__carousel-item">
+              <a href="." class="playlist__carousel-item">
                 <div class="playlist__carousel-item--img">
-                  <img src="./img/album_image.jpg" alt="#" />
+                  <img src="./assets/img/kienquan.png" alt="#" />
                   <i class="bi bi-play-circle"></i>
                 </div>
                 <div class="playlist__carousel-item--title">
-                  Hoa Bằng Lăng Remix (Single)
+                  Mùa hè năm ấy
                 </div>
                 <div class="playlist__carousel-item--subtitle">
-                  Nguyễn Văn Giàu
+                  Hồ Quân
                 </div>
-              </a> -->
+              </a>
             </div>
           </div>
           <div class="song-side__new-release">
@@ -158,7 +158,7 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                   <!-- Slides -->
-                  <!-- <div class="song-side__new-release--item swiper-slide">
+                  <div class="song-side__new-release--item swiper-slide">
                     <div class="song-side__new-release--thumbnail">
                       <img src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/3/8/f/6/38f6c01056fbbe19ae00c018b8dec874.jpg">
                       <i class="bi bi-play-circle"></i>
@@ -173,7 +173,7 @@
                         <div class="new-release__time--date">26.04.2022</div>
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               
                 <!-- If we need navigation buttons -->
@@ -192,7 +192,7 @@
               </div>
             </div>
             <div class="song-side__playlist--carousel">
-              <!-- <a class="playlist__carousel-item--circle">
+              <a class="playlist__carousel-item--circle">
                 <div class="carousel-item__circle--img">
                   <img
                     src="https://vangiau-cover.vercel.app/img/CauHenCauThe.png"
@@ -200,8 +200,8 @@
                   />
                   <i class="bi bi-play-circle"></i>
                 </div>
-                <div class="carousel-item__circle--name">Văn Giàu Nguyễn</div>
-              </a> -->
+                <div class="carousel-item__circle--name">Kiến Quân</div>
+              </a>
             </div>
           </div>
           <div class="song-side__chart">
@@ -213,7 +213,7 @@
                 </div>
               </div>
               <div class="song-side__playlist--carousel chart">
-                <div class="chart__legend-box">               
+                 <div class="chart__legend-box">               
                     <!-- <div class="chart__legend-box--item">
                       <div class="legend-box__item-number">2
                       </div>
@@ -234,7 +234,7 @@
                         </div>
                       </div>
                     </div> -->
-                </div>
+                </div> 
                 <div class="chart__main">
                   <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
                 </div>
@@ -339,7 +339,7 @@
                   </ul>
                 </div>
                 <div class="personal__song--list">
-                  <!-- <div class="personal__song--list-item active">
+                  <div class="personal__song--list-item active">
                     <div class="song__list-item--left">
                       <i class="bi bi-music-note-beamed"></i>
                       <div class="song__list-item--left-thumbnail">
@@ -361,7 +361,7 @@
                     <div class="song__list-item--right">
                       <span>04:50</span>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -413,7 +413,7 @@
                 </div>
               </div>
               <div class="song-side__playlist--carousel mv">
-                <!-- <div class="playlist__mv-item">
+                <div class="playlist__mv-item">
                   <div class="playlist__mv-item--video">
                     <video
                     id="video" 
@@ -433,7 +433,7 @@
                       <div class="info__content-subtitle">Nguyễn Đình Vũ</div>
                     </div>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="container__personal--wrapper-item active">
@@ -738,7 +738,7 @@
         <i class="bi bi-x-square"></i>
       </div>
       <div class="theme-modal__content">
-        <!-- <div class="theme-modal__content--item">
+        <div class="theme-modal__content--item">
           <h3 class="content__item--title">Dynamic</h3>
           <div class="content__item--container">
             <div class="content__item--theme">
@@ -797,7 +797,7 @@
               <h4>Nâu</h4>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
     <script src="./themes.js"></script>
