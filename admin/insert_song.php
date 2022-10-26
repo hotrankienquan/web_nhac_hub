@@ -5,30 +5,19 @@
     $name_song = $_POST['name_song'];
     $artists_names = $_POST['artists_names'];
     $performer = $_POST['performer'];
-
-    // $url_song = $_FILES['url_song']['name'];
-    // $url_song_tmp = $_FILES['url_song']['tmp_name'];
-
     $url_song =  $_FILES['file']['name'];
     $url_song_tmp = $_FILES['file']['tmp_name'];
     $file_up_name = time().$url_song;
 
     $anh1 = $_FILES['anh1']['name'];
     $anh1_tmp = $_FILES['anh1']['tmp_name'];
-    if(!($name_song == "" && $artists_names == "" && $url_song == "" && $performer == "" && $anh1 == "")) {
+    var_dump($name_song, $artists_names);
+    if( !($name_song == "" || $artists_names == "" ||  $url_song == "" ||  $performer == "" || $anh1 == "")){
       move_uploaded_file($anh1_tmp,"./upload/$anh1");
-      // move_uploaded_file($url_song_tmp,"./upload/song_upload/$url_song");
-
-      // -----
-
-
-      
-        move_uploaded_file($url_song_tmp,"./upload/song_upload/$url_song");
-      // x------------
+      move_uploaded_file($url_song_tmp,"./upload/song_upload/$url_song");
       // insert query
       $insert_song = "insert into `song` (name_song, artists_names, performer, url_song,image1,date) values ('$name_song','$artists_names','$performer','$url_song','$anh1',NOW())";
       $result_query = mysqli_query($conn,$insert_song );
-      var_dump($result_query);
       if($result_query) {
         echo "<script>alert('them bai hat thanh cong')</script>";
       }
