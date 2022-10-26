@@ -1,6 +1,7 @@
 <?php 
   include('../includes/connect.php');
-  $bool = false;
+  $bool = "";
+//   $bool = false;
   if(isset($_POST['insert_song_input'])) {
     $name_song = $_POST['name_song'];
     $artists_names = $_POST['artists_names'];
@@ -19,8 +20,10 @@
       $insert_song = "insert into `song` (name_song, artists_names, performer, url_song,image1,date) values ('$name_song','$artists_names','$performer','$url_song','$anh1',NOW())";
       $result_query = mysqli_query($conn,$insert_song );
       if($result_query) {
-        $bool = true;
+        $bool = "success";
       }
+    } else {
+        $bool = "fail";
     }
 
   }
@@ -248,21 +251,34 @@
         });
     }
 
-    // function showErrorToast() {
-    //     toast({
-    //         title: "Thất bại!",
-    //         message: "Vui lòng nhập lại.",
-    //         type: "error",
-    //         duration: 5000
-    //     });
-    // }
+    function showErrorToast() {
+        toast({
+            title: "Thất bại!",
+            message: "Vui lòng nhập lại.",
+            type: "error",
+            duration: 5000
+        });
+    }
 
-    let bool = "<?php Print($bool); ?>";
+    function showInfoToast() {
+        toast({
+            title: "Chào mừng",
+            message: "HEHEHEHE.",
+            type: "info",
+            duration: 5000
+        });
+    }
+
+    let bool = "<?php echo($bool); ?>";
     console.log(bool);
 
-    if(bool) {
-      showSuccessToast();
-    } 
+    if (bool === "success") {
+        showSuccessToast();
+    } else if (bool === "fail") {
+        showErrorToast();
+    } else {
+        showInfoToast();
+    }
     </script>
 </body>
 
